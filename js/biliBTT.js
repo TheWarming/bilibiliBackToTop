@@ -21,7 +21,7 @@ class biliBTT{
 			},0)
 		}else{
 			that.btt.style.opacity = 0;
-			that.show = true;
+			that.show = false;
 		} 
 	}
 	bttAfterShow(that){
@@ -57,4 +57,3 @@ class biliBTT{
 		}
 	}
 }
-new biliBTT(200)
