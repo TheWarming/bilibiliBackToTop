@@ -1,0 +1,41 @@
+#biliBTT{
+	position: fixed;
+	bottom: 50px;
+	right: 18.25px;
+	width: 150px;
+	height: 174px;
+	cursor: pointer;
+	z-index: 998;
+	background-position: 0 0;
+	text-align: center;
+	background-image: url(../img/rocket_top.bcc748c3.png);
+	background-repeat: no-repeat;
+	opacity: 0;
+	display: none;
+	-webkit-transition: opacity 0.3s ease;
+	transition: opacity 0.3s ease;
+}
+
+#biliBTT:hover{
+	background-image: url(../img/rocket_frame.f7563b84.png);
+	-webkit-animation: biliBTTAni steps(1, start) 0.5s infinite;
+	animation: biliBTTAni steps(1, start) 0.5s infinite;
+}
+
+@keyframes biliBTTAni{
+	0% {
+	    background-position: 0 0;
+	}
+	25% {
+	    background-position: -150px 0;
+	}
+	50% {
+	    background-position: -300px 0;
+	}
+	75% {
+	    background-position: -450px 0;
+	}
+	100% {
+	    background-position: -600px 0;
+	}
+}
