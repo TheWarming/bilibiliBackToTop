@@ -1,6 +1,6 @@
 class biliBTT{
 	constructor(top=0,target=0,callback=null) {
-	    this.btt = document.querySelector('#biliBTT');
+	  this.btt = document.querySelector('#biliBTT');
 		this.top = top;
 		this.init();
 		this.show = false;
@@ -30,14 +30,18 @@ class biliBTT{
 		}
 	}
 	bttFunction(that){
+		document.addEventListener('mousewheel',that.banScroll,{ passive: false })
+
+		console.log(that.banScroll)
 		clearInterval(window.bitimer);
 		window.bitimer = setInterval(function() {
-			console.log(that)
 		    let step = (that.target - window.pageYOffset) / 5;
 		    step = step > 0 ? Math.ceil(step) : Math.floor(step);
 		    if (window.pageYOffset === that.target) {
-		        clearInterval(window.bitimer);
-				
+						clearInterval(window.bitimer);
+						
+						document.removeEventListener('mousewheel',that.banScroll,{ passive: false })
+
 		        that.callback && that.callback();
 			}
 			window.scroll(0, window.pageYOffset + step);
@@ -56,4 +60,11 @@ class biliBTT{
 			}
 		}
 	}
+	banScroll(e){
+		e=e || window.event;
+		if (e.stopPropagation) e.stopPropagation();
+		else e.cancelBubble = true;
+		if (e.preventDefault) e.preventDefault();
+		else e.returnValue = false;
+		}
 }
